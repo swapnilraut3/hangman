@@ -10,11 +10,30 @@ class Global_store():
     '''
 
     def __init__(self, total_lives=7, lost_lives=0, correct_guess=0, won=False):
+        '''constructor for Global_store class
+
+        Attributes:
+            total_lives (int) :     the count of total lives a player holds
+            lost_lives (int):       the count of lives lost by player
+            correct_guess (int):    the count of correct guess made by player
+            won (boolean):          boolean flag to mark victory of player
+        '''
         super().__init__()
         self._total_lives = total_lives
         self._lost_lives = 0
         self._correct_guess = 0
         self._won = False
+
+    @property
+    def correct_guess(self):
+        '''the count of correct guess made by player
+        '''
+        return self._correct_guess
+
+    def correct_guess(self, value):
+        '''set count of correct guess made by player
+        '''
+        self._correct_guess = value
 
     @property
     def won(self):
