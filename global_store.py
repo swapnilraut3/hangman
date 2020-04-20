@@ -74,12 +74,3 @@ class Global_store():
         '''the count of total lives a player holds
         '''
         return self._total_lives
-
-    @total_lives.setter
-    def total_lives(self, value):
-        '''set the count of total lives a player holds
-        '''
-        if value < self._total_lives:
-            self._total_lives = value
-        else:
-            raise ValueError("You can't increase lives")
