@@ -5,17 +5,14 @@ if __name__ == "__main__":
     store = Global_store()
     print_job = Print_works()
 
-    mylist = []
-    unpresent_letters = []
-
     print_job.mask_secret_word(store.secret_word)
-
-    mylist = list(store.secret_word)
     print_job.render_hangman()
 
     while store.lost_lives != store.total_lives:
         print(print_job.masked_word)
         guess = input('Guess the letter: ')
+
+        mylist = list(store.secret_word)
 
         if guess in mylist:
             index = mylist.index(guess)
@@ -47,6 +44,7 @@ if __name__ == "__main__":
                 print_job.render_hangman(
                     h='■', n='■', t='■', lh='■', rh='■', ll='■', rl='■')
 
+            unpresent_letters = []
             unpresent_letters.append(guess)
             print(f'Wrong guessed letter: {unpresent_letters}')
 
