@@ -43,6 +43,7 @@ class Global_store():
         '''
         return self._correct_guess
 
+    @correct_guess.setter
     def correct_guess(self, value):
         '''set count of correct guess made by player
         '''
