@@ -5,7 +5,6 @@ if __name__ == "__main__":
     store = Global_store()
     print_job = Print_works()
 
-    lostLives = 0
     mylist = []
     unpresent_letters = []
 
@@ -14,7 +13,7 @@ if __name__ == "__main__":
     mylist = list(store.secret_word)
     print_job.render_hangman()
 
-    while lostLives != store.total_lives:
+    while store.lost_lives != store.total_lives:
         print(print_job.masked_word)
         guess = input('Guess the letter: ')
 
@@ -28,23 +27,23 @@ if __name__ == "__main__":
                 store.won = True
                 break
         else:
-            lostLives += 1
+            store.lost_lives += 1
             print(
-                f'Wrong guess !! Lives remaining: {store.total_lives-lostLives} out of {store.total_lives}')
-            if lostLives == 1:
+                f'Wrong guess !! Lives remaining: {store.total_lives-store.lost_lives} out of {store.total_lives}')
+            if store.lost_lives == 1:
                 print_job.render_hangman(h='■')
-            elif lostLives == 2:
+            elif store.lost_lives == 2:
                 print_job.render_hangman(h='■', n='■')
-            elif lostLives == 3:
+            elif store.lost_lives == 3:
                 print_job.render_hangman(h='■', n='■', t='■')
-            elif lostLives == 4:
+            elif store.lost_lives == 4:
                 print_job.render_hangman(h='■', n='■', t='■', lh='■')
-            elif lostLives == 5:
+            elif store.lost_lives == 5:
                 print_job.render_hangman(h='■', n='■', t='■', lh='■', rh='■')
-            elif lostLives == 6:
+            elif store.lost_lives == 6:
                 print_job.render_hangman(
                     h='■', n='■', t='■', lh='■', rh='■', ll='■')
-            elif lostLives == 7:
+            elif store.lost_lives == 7:
                 print_job.render_hangman(
                     h='■', n='■', t='■', lh='■', rh='■', ll='■', rl='■')
 
