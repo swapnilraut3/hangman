@@ -1,20 +1,15 @@
-from words import bag_of_words
-import random
 from print_works import Print_works
 from global_store import Global_store
 
 if __name__ == "__main__":
     myobj = Global_store()
-    # total_lives = (7,)
+    print_job = Print_works()
+
     lostLives = 0
     correct_guess = 0
     mylist = []
     unpresent_letters = []
-    # won = True
 
-    # secret_word = random.choice(bag_of_words)
-
-    print_job = Print_works()
     print_job.mask_secret_word(myobj.secret_word)
 
     mylist = list(myobj.secret_word)
