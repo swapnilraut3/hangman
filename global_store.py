@@ -1,3 +1,7 @@
+import random
+from words import bag_of_words
+
+
 class Global_store():
     '''
     This class stores Global constants
@@ -7,6 +11,7 @@ class Global_store():
         lost_lives (int):       the count of lives lost by player
         correct_guess (int):    the count of correct guess made by player
         won (boolean):          boolean flag to mark victory of player
+        secret_word (str):      a secret word to be guessed by player,this is get-only attribute, can't be set by user
     '''
 
     def __init__(self, total_lives=7, lost_lives=0, correct_guess=0, won=False):
@@ -17,12 +22,20 @@ class Global_store():
             lost_lives (int):       the count of lives lost by player
             correct_guess (int):    the count of correct guess made by player
             won (boolean):          boolean flag to mark victory of player
+            secret_word (str):      a secret word to be guessed by player
         '''
         super().__init__()
         self._total_lives = total_lives
         self._lost_lives = 0
         self._correct_guess = 0
         self._won = False
+        self._secret_word = random.choice(bag_of_words)
+
+    @property
+    def secret_word(self):
+        '''a secret word to be guessed by player 
+        '''
+        return self._secret_word
 
     @property
     def correct_guess(self):
